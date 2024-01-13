@@ -17,7 +17,11 @@ const contactSchema = new Schema({
     type: Boolean,
     default: false,
   },
-}, {versionKey: false});
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: 'user',
+  },
+}, {versionKey: false, timestamps: false});
 
 contactSchema.post("save", handleMongooseError);
 
@@ -25,7 +29,7 @@ const addSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().required(),
   phone: Joi.string().required(),
-  favorite: Joi.boolean(),
+  favorite: Joi.boolean().default(false),
 });
 
 const updateFavoriteSchema = Joi.object({
