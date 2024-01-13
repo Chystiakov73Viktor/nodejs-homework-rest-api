@@ -30,7 +30,6 @@ const addSchema = Joi.object({
   email: Joi.string().required(),
   phone: Joi.string().required(),
   favorite: Joi.boolean().default(false),
-  owner: Joi.string().hex().length(24).required(),
 });
 
 const updateFavoriteSchema = Joi.object({
