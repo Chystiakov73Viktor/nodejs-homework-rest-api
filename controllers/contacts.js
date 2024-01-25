@@ -9,11 +9,12 @@ const listContacts = async (req, res) => {
 
   const filter = { owner };
   if (favorite !== undefined) {
-    filter.favorite = favorite.toLowerCase() === 'true';
+    filter.favorite = favorite.toLowerCase() === "true";
   }
 
-  const result = await Contact.find(filter, "-createdAt -updatedAt").skip(skip)
-  .limit(Number(limit));
+  const result = await Contact.find(filter, "-createdAt -updatedAt")
+    .skip(skip)
+    .limit(Number(limit));
   res.json(result);
 };
 
