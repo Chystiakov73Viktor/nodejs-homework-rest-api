@@ -33,7 +33,7 @@ router.patch(
   "/:contactId/favorite",
   authenticete,
   isValidId,
-  validateBody(schemas.updateFavoriteSchema, "updateFavorite"),
+  validateBody(schemas.updateFavoriteSchema, "fieldMissing"),
   ctrl.updateStatusContact
 );
 
