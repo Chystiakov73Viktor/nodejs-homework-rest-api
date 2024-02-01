@@ -4,7 +4,8 @@ const validateBody = (schema, validationType) => {
   const errorMessages = {
     add: "missing fields",
     update: "missing fields",
-    updateFavorite: "missing field favorite",
+    fieldMissing: "missing field favorite",
+    requiredField: "missing required field email",
   };
   const func = (req, res, next) => {
     const { error } = schema.validate(req.body);
